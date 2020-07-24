@@ -11,4 +11,4 @@ docker run --rm -it \
   --client-id "${K8S_OICD_CLIENT_ID}" \
   --client-secret "${K8S_OIDC_CLIENT_SECRET}" \
   -o \
-  -w /etc/kube/seemy.app.yaml
+  -w --file /etc/kube/seemy.app.yaml
