@@ -15,5 +15,5 @@ variable "folder_id" {
 
 variable "project_name" {
   type    = string
-  default = "See My App Container Registry"
+  default = "See My App GCR"
 }
