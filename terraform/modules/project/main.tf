@@ -1,3 +1,7 @@
+provider "random" {
+  version = "~> 2.3"
+}
+
 locals {
   default_services = [
     "cloudresourcemanager.googleapis.com",
@@ -8,15 +12,18 @@ locals {
   ]
 }
 
-resource "random_id" "id" {
-  byte_length = 4
-  prefix      = var.project_name
+locals {
+  safe_project_name = substr(lower(replace(var.project_name, " ", "-")), 0, 30 - 9)
 }
 
+resource "random_id" "project_id" {
+  byte_length = 4
+  prefix      = "${local.safe_project_name}-"
+}
 
 resource "google_project" "project" {
   name            = var.project_name
-  project_id      = random_id.id.hex
+  project_id      = random_id.project_id.hex
   folder_id       = var.folder_id
   billing_account = var.billing_account_id
 
@@ -29,4 +36,3 @@ resource "google_project_service" "service" {
   service  = each.key
   project  = google_project.project.project_id
 }
-
