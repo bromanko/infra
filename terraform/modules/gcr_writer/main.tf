@@ -26,6 +26,5 @@ resource "google_storage_bucket_iam_member" "legacy_bucket_reader" {
 }
 
 resource "google_service_account_key" "rw_key" {
-  project            = var.project_id
   service_account_id = google_service_account.rw.account_id
 }

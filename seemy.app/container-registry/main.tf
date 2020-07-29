@@ -9,7 +9,7 @@ terraform {
 }
 
 provider "google" {
-  version     = "~> 2.17.0"
+  version     = "~> 3.32.0"
   credentials = var.gcp_credentials
 }
 
