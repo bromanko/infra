@@ -3,7 +3,7 @@ locals {
 }
 
 resource "google_service_account" "ro" {
-  project      = var.gcr_project_id
+  project      = var.project_id
   account_id   = var.account_id
   display_name = var.account_display_name
 }

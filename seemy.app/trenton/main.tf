@@ -8,6 +8,17 @@ terraform {
   }
 }
 
+data "terraform_remote_state" "images" {
+  backend = "remote"
+
+  config = {
+    organization = "bromanko"
+    workspaces = {
+      name = "container-registry"
+    }
+  }
+}
+
 provider "google" {
   version     = "~> 2.17.0"
   credentials = var.gcp_credentials
@@ -32,7 +43,8 @@ module "project" {
 
 module "gcr-rw" {
   source         = "../terraform/modules/gcr_writer"
-  gcr_project_id = module.project.project_id
+  gcr_project_id = data.terraform_remote_state.images.outputs.project_id
+  project_id     = module.project.project_id
   account_id     = "trenton-gcr-rw"
 }
 
