@@ -1,3 +1,7 @@
+provider "google" {
+  project = var.project_id
+}
+
 locals {
   bucket_name = "artifacts.${var.gcr_project_id}.appspot.com"
 }
