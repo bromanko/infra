@@ -4,8 +4,8 @@ locals {
 
 resource "google_service_account" "ro" {
   project      = var.gcr_project_id
-  account_id   = "gcr-read-only"
-  display_name = "GCR read-only service account"
+  account_id   = var.account_id
+  display_name = var.account_display_name
 }
 
 # storage.objectViewer enables an entity to docker pull from the repository

@@ -4,8 +4,8 @@ locals {
 
 resource "google_service_account" "rw" {
   project      = var.gcr_project_id
-  account_id   = "gcr-read-write"
-  display_name = "GCR read/write service account"
+  account_id   = var.account_id
+  display_name = var.account_display_name
 }
 
 # storage.objectAdmin provides complete access to objects in a bucket, but no

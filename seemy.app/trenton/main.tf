@@ -33,6 +33,7 @@ module "project" {
 module "gcr-rw" {
   source         = "../terraform/modules/gcr_writer"
   gcr_project_id = module.project.project_id
+  account_id     = "trenton-gcr-rw"
 }
 
 # TODO Sops configuration
