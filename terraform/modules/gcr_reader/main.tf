@@ -16,5 +16,6 @@ resource "google_storage_bucket_iam_member" "object_viewer" {
 }
 
 resource "google_service_account_key" "ro_key" {
+  project            = var.project_id
   service_account_id = google_service_account.ro.account_id
 }
