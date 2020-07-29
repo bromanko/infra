@@ -5,5 +5,5 @@ resource "google_service_account" "ci" {
 }
 
 resource "google_service_account_key" "ci_account_key" {
-  service_account_id = google_service_account.ci.account_id
+  service_account_id = google_service_account.ci.name
 }
