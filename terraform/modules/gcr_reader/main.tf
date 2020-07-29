@@ -1,7 +1,3 @@
-provider "google" {
-  project = var.project_id
-}
-
 locals {
   bucket_name = "artifacts.${var.gcr_project_id}.appspot.com"
 }
@@ -20,6 +16,5 @@ resource "google_storage_bucket_iam_member" "object_viewer" {
 }
 
 resource "google_service_account_key" "ro_key" {
-  project            = var.project_id
-  service_account_id = google_service_account.ro.account_id
+  service_account_id = google_service_account.ro.name
 }
