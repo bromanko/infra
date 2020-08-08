@@ -12,6 +12,7 @@ resource "google_service_account_key" "k3s_key" {
 
 resource "google_artifact_registry_repository_iam_member" "k3s" {
   provider   = google-beta
+  project    = module.project.project_id
   location   = google_artifact_registry_repository.artifact_repository.location
   repository = google_artifact_registry_repository.artifact_repository.name
   role       = "roles/artifactregistry.reader"
@@ -20,6 +21,7 @@ resource "google_artifact_registry_repository_iam_member" "k3s" {
 
 resource "google_artifact_registry_repository_iam_member" "ci" {
   provider   = google-beta
+  project    = module.project.project_id
   location   = google_artifact_registry_repository.artifact_repository.location
   repository = google_artifact_registry_repository.artifact_repository.name
   role       = "roles/artifactregistry.reader"
