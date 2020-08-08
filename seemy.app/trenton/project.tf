@@ -1,4 +1,5 @@
 resource "google_folder" "trenton" {
+  provider     = google
   display_name = var.project_name
   parent       = "folders/${var.folder_id}"
 }

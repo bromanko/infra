@@ -4,6 +4,7 @@ module "sops" {
 }
 
 resource "google_kms_crypto_key_iam_member" "ci_account_sops" {
+  provider      = google
   crypto_key_id = module.sops.sops_kms_crypto_key_id
   member        = "serviceAccount:${google_service_account.ci.email}"
   role          = "roles/cloudkms.cryptoKeyDecrypter"

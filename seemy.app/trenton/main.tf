@@ -24,4 +24,8 @@ provider "google" {
   credentials = var.gcp_credentials
 }
 
+provider "google-beta" {
+  version     = "~> 3.32.0"
+  credentials = var.gcp_credentials
+}
 
