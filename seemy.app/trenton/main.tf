@@ -1,10 +1,9 @@
-data "terraform_remote_state" "images" {
-  backend = "remote"
-
-  config = {
+terraform {
+  backend "remote" {
     organization = "bromanko"
-    workspaces = {
-      name = "container-registry"
+
+    workspaces {
+      name = "trenton"
     }
   }
 }
