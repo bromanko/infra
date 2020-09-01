@@ -31,7 +31,7 @@ resource "google_artifact_registry_repository_iam_member" "ci" {
 resource "google_service_account" "production_web_server" {
   provider     = google-beta
   project      = module.project.project_id
-  account_id   = "trenton-production-web-server"
+  account_id   = "web-server"
   display_name = "Service account for the web server app"
 }
 
