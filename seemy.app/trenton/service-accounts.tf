@@ -37,5 +37,5 @@ resource "google_service_account" "production_web_server" {
 
 resource "google_service_account_key" "production_web_server" {
   provider           = google
-  service_account_id = google_service_account.production_web_server
+  service_account_id = google_service_account.production_web_server.name
 }
