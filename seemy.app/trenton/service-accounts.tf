@@ -39,3 +39,9 @@ resource "google_service_account_key" "production_web_server" {
   provider           = google
   service_account_id = google_service_account.production_web_server.name
 }
+
+resource "google_project_iam_member" "production_web_server" {
+  provider = google
+  member = "serviceAccount:${google_service_account.production_web_server.email}"
+  role = "roles/datastore.user"
+}
