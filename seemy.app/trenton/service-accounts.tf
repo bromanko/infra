@@ -27,3 +27,15 @@ resource "google_artifact_registry_repository_iam_member" "ci" {
   role       = "roles/artifactregistry.writer"
   member     = "serviceAccount:${google_service_account.ci.email}"
 }
+
+resource "google_service_account" "production_web_server" {
+  provider     = google-beta
+  project      = module.project.project_id
+  account_id   = "trenton-production-web-server"
+  display_name = "Service account for the web server app"
+}
+
+resource "google_service_account_key" "production_web_server" {
+  provider           = google
+  service_account_id = google_service_account.production_web_server
+}
