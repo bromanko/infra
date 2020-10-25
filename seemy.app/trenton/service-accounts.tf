@@ -46,3 +46,15 @@ resource "google_project_iam_member" "production_web_server" {
   member = "serviceAccount:${google_service_account.production_web_server.email}"
   role = "roles/datastore.user"
 }
+
+resource "google_service_account" "production_webhooks_server" {
+  provider     = google-beta
+  project      = module.project.project_id
+  account_id   = "webhooks-server"
+  display_name = "Service account for the webhooks server app"
+}
+
+resource "google_service_account_key" "production_webhooks_server" {
+  provider           = google
+  service_account_id = google_service_account.production_webhooks_server.name
+}
