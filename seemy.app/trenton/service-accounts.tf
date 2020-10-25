@@ -42,9 +42,9 @@ resource "google_service_account_key" "production_web_server" {
 
 resource "google_project_iam_member" "production_web_server" {
   provider = google
-  project = module.project.project_id
-  member = "serviceAccount:${google_service_account.production_web_server.email}"
-  role = "roles/datastore.user"
+  project  = module.project.project_id
+  member   = "serviceAccount:${google_service_account.production_web_server.email}"
+  role     = "roles/datastore.user"
 }
 
 resource "google_service_account" "production_webhooks_server" {

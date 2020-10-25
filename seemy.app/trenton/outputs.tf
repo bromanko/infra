@@ -9,6 +9,6 @@ output "ci_service_account_key" {
 }
 
 output "web_service_account_key" {
-  value = google_service_account_key.production_web_server.private_key
+  value     = google_service_account_key.production_web_server.private_key
   sensitive = true
 }
