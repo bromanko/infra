@@ -12,3 +12,8 @@ output "web_service_account_key" {
   value     = google_service_account_key.production_web_server.private_key
   sensitive = true
 }
+
+output "webhooks_service_account_key" {
+  value     = google_service_account_key.production_webhooks_server.private_key
+  sensitive = true
+}
