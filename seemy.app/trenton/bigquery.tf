@@ -7,5 +7,6 @@ resource "google_project_service" "bigquery" {
 }
 
 resource "google_bigquery_dataset" "health" {
+  project    = module.project.project_id
   dataset_id = "health"
 }
