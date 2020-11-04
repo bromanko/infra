@@ -14,7 +14,15 @@ resource "google_storage_bucket" "test_data" {
   project       = module.project.project_id
   name          = "trenton-test-data"
   force_destroy = true
-  storage_class = "REGIONAL"
+
+  lifecycle_rule {
+    condition {
+      age = 3
+    }
+    action {
+      type = "Delete"
+    }
+  }
 }
 
 resource "google_storage_bucket_iam_member" "test_data_ci_testing" {
