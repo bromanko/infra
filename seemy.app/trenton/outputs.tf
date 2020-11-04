@@ -17,3 +17,8 @@ output "webhooks_service_account_key" {
   value     = google_service_account_key.production_webhooks_server.private_key
   sensitive = true
 }
+
+output "ci_testing_service_account_key" {
+  value     = google_service_account_key.ci_testing.private_key
+  sensitive = true
+}
