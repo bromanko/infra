@@ -58,15 +58,3 @@ resource "google_service_account_key" "production_webhooks_server" {
   provider           = google
   service_account_id = google_service_account.production_webhooks_server.name
 }
-
-resource "google_service_account" "ci_testing" {
-  provider     = google-beta
-  project      = module.project.project_id
-  account_id   = "ci-testing"
-  display_name = "Service account for running CI tests"
-}
-
-resource "google_service_account_key" "ci_testing" {
-  provider           = google
-  service_account_id = google_service_account.ci_testing.name
-}

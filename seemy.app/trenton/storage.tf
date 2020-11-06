@@ -25,8 +25,8 @@ resource "google_storage_bucket" "test_data" {
   }
 }
 
-resource "google_storage_bucket_iam_member" "test_data_ci_testing" {
+resource "google_storage_bucket_iam_member" "test_data_ci" {
   bucket = google_storage_bucket.test_data.name
-  member = "serviceAccount:${google_service_account.ci_testing.email}"
+  member = "serviceAccount:${google_service_account.ci.email}"
   role   = "roles/storage.objectCreator"
 }
