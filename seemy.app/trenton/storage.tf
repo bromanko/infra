@@ -1,6 +1,6 @@
 resource "google_storage_bucket" "production_data" {
   project       = module.project.project_id
-  name          = "data.trenton.seemy.app"
+  name          = "data-trenton-seemy-app"
   force_destroy = true
   storage_class = "STANDARD"
   location      = "US-CENTRAL1"
@@ -14,7 +14,7 @@ resource "google_storage_bucket_iam_member" "production_data_webhooks" {
 
 resource "google_storage_bucket" "test_data" {
   project       = module.project.project_id
-  name          = "test.data.trenton.seemy.app"
+  name          = "test-data-trenton-seemy-app"
   storage_class = "STANDARD"
   location      = "US-CENTRAL1"
   force_destroy = true
